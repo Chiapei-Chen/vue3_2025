@@ -11,6 +11,11 @@ const routes = [
     name: 'day-1',
     component: () => import('../views/day-1/day-1.vue')
   },
+  {
+    path: '/day-2',
+    name: 'day-2',
+    component: () => import('../views/day-2/day-2.vue')
+  },
 ]
 
 const router = createRouter({
