@@ -23,9 +23,9 @@ const chapters = [
   },
   {
     day: 3,
-    title: '資料加工與監聽',
+    title: 'Watch 監聽器',
     route: 'day-3',
-    topics: ['computed', 'watch', 'watchEffect'],
+    topics: ['watch', 'watchEffect', 'onWatchEffect'],
     difficulty: 'basic'
   }
 ];
