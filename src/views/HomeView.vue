@@ -1,7 +1,9 @@
 <script setup>
-import { computed } from 'vue';
+import { computed, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import { ElCard, ElButton, ElTag } from 'element-plus';
+import { getGoodsList } from '@/service/api';
+import axios from 'axios';
 
 const router = useRouter();
 
@@ -27,6 +29,13 @@ const chapters = [
     route: 'day-3',
     topics: ['watch', 'watchEffect', 'onWatchEffect'],
     difficulty: 'basic'
+  },
+  {
+    day: 4,
+    title: 'Axios API請求套件',
+    route: 'day-4',
+    topics: ['api', 'axios', 'http'],
+    difficulty: 'basic'
   }
 ];
 
@@ -50,6 +59,24 @@ const difficultyMap = {
 const navigateToChapter = route => {
   router.push({ name: route });
 };
+
+console.log(import.meta.env.VITE_BASE_API);
+
+// 直接使用axios發送請求
+
+const getCountries = async () => {
+  const { data } = await axios.get('https://restcountries.com/v3.1/all');
+  console.log('## countries', data);
+};
+
+// DOM 加載完成後獲取商品列表
+onMounted(async () => {
+  await getGoodsList({
+    Page: 0,
+    PageLimit: 20
+  });
+  // await getCountries();
+});
 </script>
 
 <template>
