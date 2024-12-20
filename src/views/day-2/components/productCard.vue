@@ -36,6 +36,7 @@ const quantity = defineModel('quantity', {
   default: 1
 });
 
+//策略模式
 const discountStrategies = {
   PERCENTAGE: (price, discount) => {
     const originalPrice = new Decimal(price);

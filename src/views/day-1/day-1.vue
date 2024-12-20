@@ -101,12 +101,14 @@ import ComponentA from './components/componentA.vue';
 import ComponentB from './components/componentB.vue';
 
 // 狀態管理
+//使用shallowRef是因為只需追蹤currentComponent.value是否變更 不須追蹤元件內部屬性變化 可節省效能
 const currentComponent = shallowRef(ComponentA);
 const isKeepAlive = ref(true);
 const logs = ref([]);
 const parentMessage = ref('');
 
 // 方法
+//切換目前顯示子元件
 const toggleComponent = () => {
   const oldComponent = currentComponent.value === ComponentA ? 'A' : 'B';
   addLog(`組件${oldComponent} - 準備切換`, 'lifecycle');

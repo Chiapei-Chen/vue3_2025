@@ -7,6 +7,7 @@
 
     <div class="message-area">
       <h4>來自父組件的消息: {{ parentMessage }}</h4>
+      <!-- 使用v-model允許子元件將資料發送給父元件 -->
       <input v-model="childMessage" placeholder="輸入要發送給父組件的消息" />
       <div class="button-group">
         <button @click="sendToParent">發送消息到父組件</button>
@@ -33,6 +34,7 @@ const count = ref(0);
 const childMessage = ref('');
 const addLog = inject('addLog');
 
+//使用defineProps接收父元件傳入的parentMessage
 const props = defineProps({
   parentMessage: {
     type: String,
@@ -40,6 +42,7 @@ const props = defineProps({
   }
 });
 
+//定義子元件事件 透過emit方法通知父元件
 const emit = defineEmits(['child-event']);
 
 // 生命週期鉤子
