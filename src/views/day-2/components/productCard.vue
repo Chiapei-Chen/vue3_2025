@@ -37,6 +37,7 @@ const quantity = defineModel('quantity', {
 });
 
 //策略模式
+//處理與單個商品相關的邏輯與顯示，折扣計算示與商品價格相關邏輯，因此放在子元件
 const discountStrategies = {
   PERCENTAGE: (price, discount) => {
     const originalPrice = new Decimal(price);
@@ -60,7 +61,6 @@ const finalPrice = computed(() => {
 });
 
 // 格式化價格顯示方式
-
 const formatPrice = price => {
   return new Intl.NumberFormat('zh-TW', {
     style: 'currency',
