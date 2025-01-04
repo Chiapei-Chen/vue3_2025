@@ -59,7 +59,6 @@ const finalPrice = computed(() => {
 });
 
 // 格式化價格顯示方式
-
 const formatPrice = price => {
   return new Intl.NumberFormat('zh-TW', {
     style: 'currency',
